@@ -1,3 +1,4 @@
+const db  = require("quick.db");
 const { MessageEmbed } = require("discord.js");
 const {prefix} = require('../ayarlar.json');
 
@@ -5,6 +6,7 @@ exports.run = async(client, message, args) => {
 
     let member = message.mentions.members.first();
     const jailrol = db.get(`jailrol`);
+  
     const yetkirol = db.get(`yetkirol`);
     /*
     if(args[0] == 'ver'){
@@ -17,7 +19,7 @@ exports.run = async(client, message, args) => {
     */
     if(!message.member.roles.cache.has(yetkirol)) return message.channel.send({content:`Bu komutu kullanmak için yeterli yetkiniz yok`});
     if(args[0] == 'al'){
-        if(!message.member.roles.cache.has(jailrol)) return message.channel.send({content:`Kullanıcıda zaten jail rolü yok`});
+        if(!member.roles.cache.has(jailrol)) return message.channel.send({content:`Kullanıcıda zaten jail rolü yok`});
         member.roles.remove(jailrol);
         const embed = new MessageEmbed().setDescription(`${member} isimli kullanıcı jailden alındı`)
         message.channel.send({embeds:[embed]})
