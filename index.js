@@ -5,7 +5,8 @@ const db = require('quick.db');
 var moment = require("moment")
 require("moment-duration-format");
 moment.locale("tr");
-const { prefix, token } = require("./ayarlar.json");
+const token = process.env.TOKEN;
+const prefix = process.env.PREFIX;
 
 
 global.commands = new Collection();
