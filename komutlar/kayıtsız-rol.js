@@ -2,7 +2,7 @@ const { MessageEmbed, Permissions } = require("discord.js");
 const db = require('quick.db');
 exports.run = async(client, message, args) => {
     if(!message.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) return message.channel.send({content: `Bu Komutu kullanabilmek için \`SUNUCUYU_YÖNET\` yetkisine sahip olmalısın`})
-
+const prefix = process.env.PREFIX;
     const zatenvar = db.get(`kayıtsızrol`);
     if(args[0] == 'ayarla'){
         const rol = message.mentions.roles.first();

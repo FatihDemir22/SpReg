@@ -1,4 +1,4 @@
-const { prefix } = require('../ayarlar.json');
+const prefix = process.env.PREFIX;
 const { MessageEmbed,Permissions } = require('discord.js');
 const db = require('quick.db');
 exports.run = async (client, message, args) => {

@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { prefix } = require('../ayarlar.json');
+const prefix = process.env.PREFIX;
 exports.run = async (client, message, args) => {
   
   const yt = new MessageButton().setLabel('Gweep Creative Youtube').setStyle('LINK').setURL('http://gweepcreative.com');
